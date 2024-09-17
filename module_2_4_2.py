@@ -6,14 +6,16 @@ primes = []
 not_primes = []
 
 for i in range(1, len(numbers)):
-    for j in range(1, int(numbers[i] ** 0.5)):
+    for j in range(2, int(numbers[i] ** 0.5)+1):
         is_prime = True
         if numbers[i] % numbers[j] == 0:
             is_prime = False
             not_primes.append(numbers[i])
             break
-        else:
+        if is_prime:
             primes.append(numbers[i])
+        else:
+            not_primes.append(numbers[i])
 # Вывод результата
 # print()
 print('Primes: ', primes)
